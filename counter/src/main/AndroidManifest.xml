@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.opensignal.giuseppeliguori.counter">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <service
+            android:process=":background"
+            android:name=".InitializationService"/>
+
+        <service
+            android:process=":background"
+            android:name=".CounterService"/>
+
+        <receiver
+            android:process=":background"
+            android:enabled="true"
+            android:exported="true"
+            android:name=".BatteryLevelReceiver">
+
+            <intent-filter>
+                <action android:name="ACTION_BATTERY_LEVEL" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
